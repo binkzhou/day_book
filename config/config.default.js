@@ -25,6 +25,15 @@ module.exports = (appInfo) => {
     credentials: true, // 允许 Cookie 跨域跨域
     allowMethods: "GET,HEAD,PUT,POST,DELETE,PATCH",
   };
+
+  // 配置上传路径
+  const userConfig = {
+    uploadDir: "app/public/upload",
+  };
+
+  config.multipart = {
+    mode: "file",
+  };
   config.jwt = {
     secret: "egg-learn",
   };
@@ -41,5 +50,6 @@ module.exports = (appInfo) => {
   };
   return {
     ...config,
+    ...userConfig,
   };
 };
